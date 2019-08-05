@@ -1,0 +1,17 @@
+header {color: white;
+  font-family: Arial; background-color: black; padding: 10px; margin: 0}
+
+body {
+  height: 100%
+}
+
+.auto_container {
+  align-self: center;
+  display: grid;
+  justify-content:center;
+  align-items:center;
+}
+
+/* .auto_container .auto_elements {
+  background-color: green;
+} */
