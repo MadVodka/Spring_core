@@ -11,7 +11,7 @@
 <body>
   <header>
     <h3>Личный кабинет (демо)</h3>
-    <a href="/demo-admin">Админка (демо)</a>
+    <a href="/demo_admin">Админка (демо)</a>
   </header>
   <div class="auto_container">
     <%-- <div> --%>
@@ -35,14 +35,14 @@
           </table>
           <br>
           <form>
-            <input type="button" value="Оформить еще авто" onclick="window.location.href='/demo-client/add'" />
+            <input type="button" value="Оформить еще авто" onclick="window.location.href='/demo_client/add'" />
           </form>
         </c:when>
 
         <c:otherwise>
           <h4>Нет оформленных авто</h4>
           <form>
-            <input type="button" value="Оформить авто" onclick="window.location.href='/demo-client/add'" />
+            <input type="button" value="Оформить авто" onclick="window.location.href='/demo_client/add'" />
           </form>
         </c:otherwise>
       </c:choose>

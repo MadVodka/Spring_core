@@ -11,7 +11,7 @@
 <body>
   <header>
     <h3>Админка (демо)</h3>
-    <a href="/demo-client">Личный кабинет (демо)</a>
+    <a href="/demo_client">Личный кабинет (демо)</a>
   </header>
   <h4>Имеющиеся автомобили</h4>
   <table>

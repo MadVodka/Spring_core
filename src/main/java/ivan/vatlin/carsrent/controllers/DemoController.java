@@ -33,20 +33,20 @@ public class DemoController {
         binder.addValidators(validator);
     }
 
-    @GetMapping(value = "/demo-client", produces = {"application/xml; charset=UTF-8"})
+    @GetMapping(value = "/demo_client", produces = {"application/xml; charset=UTF-8"})
     public String demoClient(Model model) {
         model.addAttribute("cars", carDao.getAllCars());
         model.addAttribute("orders", orderDao.getAllOrders());
-        return "demo-client";
+        return "demo_client";
     }
 
-    @GetMapping(value = "/demo-client/add")
+    @GetMapping(value = "/demo_client/add")
     public String addOrder(Model model, Order order) {
         model.addAttribute("cars", carDao.getAllCars());
         return "add_order";
     }
 
-    @PostMapping(value = "/demo-client/add")
+    @PostMapping(value = "/demo_client/add")
     public String saveOrder(@ModelAttribute @Validated Order order, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("cars", carDao.getAllCars());
@@ -54,13 +54,13 @@ public class DemoController {
         }
 
         orderDao.addOrder(order);
-        return "redirect:/demo-client";
+        return "redirect:/demo_client";
     }
 
-    @GetMapping(value = "/demo-admin", produces = {"application/xml; charset=UTF-8"})
+    @GetMapping(value = "/demo_admin", produces = {"application/xml; charset=UTF-8"})
     public String demoAdmin(Model model) {
         model.addAttribute("cars", carDao.getAllCars());
         model.addAttribute("orders", orderDao.getAllOrders());
-        return "demo-admin";
+        return "demo_admin";
     }
 }
