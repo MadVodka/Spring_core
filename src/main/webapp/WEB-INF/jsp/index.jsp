@@ -2,18 +2,12 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <html lang="en">
    <head>
-      <title>Аренда автомобиля (demo)</title>
+      <title>Аренда автомобиля (демо)</title>
    </head>
    <body>
-      <h1>Аренда автомобиля</h1
-        <form class="" action="index.html" method="post">
-          Введите желаемый логин<br>
-          <input type="text" name="login" value=""><br>
-          Введите ваше имя<br>
-          <input type="text" name="name" value=""><br>
-          <input type="submit" value="Войти">
-        </form>
-
+      <h1>Аренда автомобиля (демо)</h1>
+      <a href="/demo-client">Личный кабинет клиента</a><br>
+      <a href="/demo-admin">Админка</a>
    </body>
 
 </html>

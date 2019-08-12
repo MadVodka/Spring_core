@@ -27,7 +27,8 @@ public class CarsGenerator implements EntityGenerator<List<Car>> {
         List<Car> cars = new ArrayList<>();
         for (int i = 0; i < models.length; i++) {
             String regNumber = regNumberGenerator.generate();
-            Car car = new Car(i, models[i], regNumber, 120);
+            int price = random.nextInt(100) + 50;
+            Car car = new Car(i, models[i], regNumber, price);
             cars.add(car);
         }
         return cars;
