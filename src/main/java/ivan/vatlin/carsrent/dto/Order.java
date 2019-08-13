@@ -1,54 +1,41 @@
 package ivan.vatlin.carsrent.dto;
 
-import ivan.vatlin.carsrent.OrderStatus;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.validation.constraints.NotNull;
-
 public class Order {
-    private static long counter = 1;
-    private final long id = counter++;
-    private long clientId;
-
-    @NotNull
+    private long id;
     private long carId;
-
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private String startDate;
-
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private String endDate;
-    private OrderStatus orderStatus;
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getCarId() {
         return carId;
     }
 
-    public Order setCarId(long carId) {
+    public void setCarId(long carId) {
         this.carId = carId;
-        return this;
     }
 
     public String getStartDate() {
         return startDate;
     }
 
-    public Order setStartDate(String startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
-        return this;
     }
 
     public String getEndDate() {
         return endDate;
     }
 
-    public Order setEndDate(String endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
-        return this;
     }
 
     @Override

@@ -14,7 +14,6 @@
     <a href="/demo_admin">Админка (демо)</a>
   </header>
   <div class="auto_container">
-    <%-- <div> --%>
       <c:choose>
         <c:when test="${orders.size()>0}">
           <table>
@@ -46,8 +45,6 @@
           </form>
         </c:otherwise>
       </c:choose>
-    <%-- </div> --%>
   </div>
-
   </body>
 </html>

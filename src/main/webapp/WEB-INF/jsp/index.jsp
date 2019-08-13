@@ -6,8 +6,8 @@
    </head>
    <body>
       <h1>Аренда автомобиля (демо)</h1>
-      <a href="/demo-client">Личный кабинет клиента</a><br>
-      <a href="/demo-admin">Админка</a>
+      <a href="/demo_client">Личный кабинет клиента</a><br>
+      <a href="/demo_admin">Админка</a>
    </body>
 
 </html>

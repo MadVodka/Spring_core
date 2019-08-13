@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public class OrderDaoImpl implements OrderDao {
     private List<Order> orders;
+    private long orderId = 0;
 
     @Override
     public List<Order> getAllOrders() {
@@ -17,23 +18,9 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public Order getOrderById(long id) {
-        return null;
-    }
-
-    @Override
     public boolean addOrder(Order order) {
+        order.setId(orderId++);
         return orders.add(order);
-    }
-
-    @Override
-    public long removeOrder(long id) {
-        return 0;
-    }
-
-    @Override
-    public long updateOrder(Order order) {
-        return 0;
     }
 
     @PostConstruct

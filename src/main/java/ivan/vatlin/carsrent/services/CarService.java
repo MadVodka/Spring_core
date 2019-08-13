@@ -1,5 +1,9 @@
 package ivan.vatlin.carsrent.services;
 
-public interface CarService {
+import ivan.vatlin.carsrent.dto.Car;
 
+import java.util.List;
+
+public interface CarService {
+    List<Car> getAllCars();
 }

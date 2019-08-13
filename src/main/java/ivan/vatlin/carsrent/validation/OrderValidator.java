@@ -5,7 +5,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import java.util.regex.Pattern;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 @Component
 public class OrderValidator implements Validator {
@@ -22,22 +24,31 @@ public class OrderValidator implements Validator {
             errors.rejectValue("carId", null, "Выберите автомобиль");
         }
 
-        Pattern pattern = Pattern.compile("([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))");
-        if (order.getStartDate() == null || order.getStartDate().isEmpty() || !(pattern.matcher(order.getStartDate()).matches())) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        LocalDate startLocalDate = null;
+        LocalDate endLocalDate;
+
+        try {
+            startLocalDate = LocalDate.parse(order.getStartDate(), dateTimeFormatter);
+
+            if (startLocalDate.isBefore(LocalDate.now())) {
+                errors.rejectValue("startDate", null, "Дата начала аренды не может быть раньше мегодняшнего дня");
+            }
+        } catch (DateTimeParseException e) {
+            System.out.println(e.getMessage());
             errors.rejectValue("startDate", null, "Неправильный формат даты");
         }
 
-        if (order.getEndDate() == null || order.getEndDate().isEmpty() || !(pattern.matcher(order.getEndDate()).matches())) {
+        try {
+            endLocalDate = LocalDate.parse(order.getEndDate(), dateTimeFormatter);
+
+            if (startLocalDate != null && endLocalDate.isBefore(startLocalDate)) {
+                errors.rejectValue("endDate", null, "Дата окончания аренды не может быть меньше даты начала аренды");
+            }
+        } catch (DateTimeParseException e) {
+            System.out.println(e.getMessage());
             errors.rejectValue("endDate", null, "Неправильный формат даты");
         }
-
-//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//        LocalDate startLocalDate = LocalDate.parse(order.getStartDate(), dateTimeFormatter);
-//        LocalDate endLocalDate = LocalDate.parse(order.getStartDate(), dateTimeFormatter);
-//
-//        if (endLocalDate.isBefore(startLocalDate)) {
-//            errors.rejectValue("startDate", null, "Дата начала аренды не может быть больше даты окончания аренды");
-//            errors.rejectValue("endDate", null, "Дата окончания аренды не может быть меньше даты начала аренды");
-//        }
     }
 }
